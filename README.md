@@ -9,10 +9,6 @@ The **healthcheck.sh** should be placed inside the config directory of Deluge, a
     network_mode: "service:gluetun"
     image: lscr.io/linuxserver/deluge:latest
     container_name: deluge
-    environment:
-      - PUID=297536
-      - PGID=297536
-      - TZ=Europe/London
     volumes:
       - /path/to/config/deluge:/config
     depends_on:
