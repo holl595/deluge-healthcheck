@@ -3,7 +3,8 @@
 PASSWORD="deluge"
 
 #Ensure web session timeout is set to maximum
-sed -i 's/"session_timeout": [0-9]\+/"session_timeout": 999999999/' /config/web.conf
+grep -q '"session_timeout": 999999999,' /config/web.conf || \
+sed -i 's/"session_timeout":[[:space:]]*[0-9]\+/"session_timeout": 999999999/' /config/web.conf
 
 deluge_web_connected() {
 if [ ! -f /tmp/cookies.txt ]; then
